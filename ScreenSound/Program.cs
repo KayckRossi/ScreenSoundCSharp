@@ -1,20 +1,25 @@
 ﻿Banda baroes = new Banda("Barões da Pisadinha");
-baroes.Nome = "dda";
 
-Album album = new Album();
-album.Nome = "O Maior Piseiro do Mundo";
+Album album = new Album("O Maior Piseiro do Mundo");
 
-Musica musica1 = new Musica(baroes);
-musica1.Nome = "Volta Pra Mim";
-musica1.Duracao = 210;
 
-Musica musica2 = new Musica(baroes);
-musica2.Nome = "Chamar Eu Bebê";
-musica2.Duracao = 310;
+Musica musica1 = new Musica(baroes, "Volta Pra Mim")
+{
+    Duracao = 210,
+    Disponivel = true
+};
+
+Musica musica2 = new Musica(baroes, "Chamar Eu Bebê")
+{
+    Duracao = 310,
+    Disponivel = false
+};
 
 album.AdicionarMusica(musica1);
 album.AdicionarMusica(musica2);
+baroes.AdicionarAlbum(album);
 
-
-baroes.AdicionarAlbum(album); 
+musica1.ExibirFichaTecnica();
+musica2.ExibirFichaTecnica();
+album.ExibirMusicasDoAlbum();
 baroes.ExibirDiscografia();
